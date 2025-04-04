@@ -5,3 +5,4 @@ Pillow
 tensorflow
 gunicorn
 python-dotenv
+flask-cors
