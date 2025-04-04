@@ -2,11 +2,13 @@ from flask import Flask, request, jsonify
 import tensorflow as tf
 import numpy as np
 import json
-import os
 from PIL import Image
 import gdown
 from flask_cors import CORS
 from dotenv import load_dotenv
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 # initialize flask object
 
