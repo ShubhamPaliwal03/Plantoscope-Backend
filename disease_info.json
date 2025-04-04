@@ -1,0 +1,154 @@
+{
+    "Apple___Apple_scab": {
+      "cause": "Caused by the fungus Venturia inaequalis, spreads in cool, wet conditions.",
+      "cure": "Use fungicides, remove infected leaves, and ensure good air circulation."
+    },
+    "Apple___Black_rot": {
+      "cause": "Caused by the fungus Botryosphaeria obtusa, spreads through infected fruit and dead wood.",
+      "cure": "Prune infected branches, remove diseased fruit, and apply fungicides."
+    },
+    "Apple___Cedar_apple_rust": {
+      "cause": "Caused by the fungus Gymnosporangium juniperi-virginianae, requires both apple and juniper hosts.",
+      "cure": "Remove nearby juniper plants, apply fungicides, and prune infected areas."
+    },
+    "Apple___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Blueberry___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+      "cause": "Caused by the fungus Podosphaera clandestina, thrives in humid conditions.",
+      "cure": "Apply sulfur-based fungicides, ensure proper air circulation, and remove infected leaves."
+    },
+    "Cherry_(including_sour)___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+      "cause": "Caused by the fungus Cercospora zeae-maydis, spreads through infected debris and humid conditions.",
+      "cure": "Use resistant varieties, practice crop rotation, and apply fungicides."
+    },
+    "Corn_(maize)___Common_rust_": {
+      "cause": "Caused by the fungus Puccinia sorghi, spreads through airborne spores.",
+      "cure": "Plant resistant hybrids, apply fungicides, and improve air circulation."
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+      "cause": "Caused by the fungus Exserohilum turcicum, spreads in cool, humid conditions.",
+      "cure": "Use resistant varieties, apply fungicides, and remove infected debris."
+    },
+    "Corn_(maize)___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Grape___Black_rot": {
+      "cause": "Caused by the fungus Guignardia bidwellii, spreads through infected vines and humid conditions.",
+      "cure": "Prune infected vines, remove diseased fruit, and apply fungicides."
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "cause": "Caused by a complex of fungi, affects grapevine wood and causes discoloration.",
+      "cure": "Prune infected vines, apply fungicides, and improve vineyard sanitation."
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "cause": "Caused by the fungus Pseudocercospora vitis, spreads in warm, wet conditions.",
+      "cure": "Use copper-based fungicides, prune infected leaves, and avoid overhead watering."
+    },
+    "Grape___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+      "cause": "Caused by the bacterium Candidatus Liberibacter spp., spread by psyllid insects.",
+      "cure": "Control psyllid populations, remove infected trees, and use disease-free planting materials."
+    },
+    "Peach___Bacterial_spot": {
+      "cause": "Caused by the bacterium Xanthomonas campestris, spreads in wet conditions.",
+      "cure": "Apply copper-based sprays, remove infected leaves, and improve air circulation."
+    },
+    "Peach___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Pepper,_bell___Bacterial_spot": {
+      "cause": "Caused by the bacterium Xanthomonas spp., spreads through water splash and infected seeds.",
+      "cure": "Use disease-free seeds, apply copper-based sprays, and practice crop rotation."
+    },
+    "Pepper,_bell___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Potato___Early_blight": {
+      "cause": "Caused by the fungus Alternaria solani, thrives in warm, humid conditions.",
+      "cure": "Apply fungicides, use disease-resistant varieties, and practice crop rotation."
+    },
+    "Potato___Late_blight": {
+      "cause": "Caused by the pathogen Phytophthora infestans, spreads in cool, wet conditions.",
+      "cure": "Use fungicides, remove infected plants, and avoid overhead watering."
+    },
+    "Potato___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Raspberry___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Soybean___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Squash___Powdery_mildew": {
+      "cause": "Caused by various fungi, spreads in warm, dry conditions.",
+      "cure": "Apply sulfur-based fungicides, ensure proper spacing, and remove infected leaves."
+    },
+    "Strawberry___Leaf_scorch": {
+      "cause": "Caused by the fungus Diplocarpon earlianum, spreads in wet conditions.",
+      "cure": "Apply fungicides, remove infected leaves, and improve air circulation."
+    },
+    "Strawberry___healthy": {
+      "cause": "",
+      "cure": ""
+    },
+    "Tomato___Bacterial_spot": {
+      "cause": "Caused by the bacterium Xanthomonas campestris, spreads through water splash.",
+      "cure": "Use copper-based sprays, remove infected leaves, and practice crop rotation."
+    },
+    "Tomato___Early_blight": {
+      "cause": "Caused by the fungus Alternaria solani, thrives in warm, humid conditions.",
+      "cure": "Apply fungicides, use resistant varieties, and rotate crops."
+    },
+    "Tomato___Late_blight": {
+      "cause": "Caused by the pathogen Phytophthora infestans, spreads in wet conditions.",
+      "cure": "Apply fungicides, remove infected plants, and improve air circulation."
+    },
+    "Tomato___Leaf_Mold": {
+      "cause": "Caused by the fungus Passalora fulva, spreads in humid conditions.",
+      "cure": "Apply fungicides, ensure good ventilation, and remove infected leaves."
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "cause": "Caused by the fungus Septoria lycopersici, spreads through splashed water.",
+      "cure": "Use fungicides, prune infected leaves, and apply mulch."
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+      "cause": "Caused by Tetranychus urticae, tiny mites that thrive in dry conditions.",
+      "cure": "Use insecticidal soaps, increase humidity, and introduce natural predators."
+    },
+    "Tomato___Target_Spot": {
+      "cause": "Caused by the fungus Corynespora cassiicola, spreads in humid conditions.",
+      "cure": "Apply fungicides, remove infected leaves, and practice crop rotation."
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+      "cause": "Caused by a virus spread by whiteflies.",
+      "cure": "Control whiteflies, use resistant varieties, and remove infected plants."
+    },
+    "Tomato___Tomato_mosaic_virus": {
+      "cause": "Caused by a virus that spreads through contaminated tools and hands.",
+      "cure": "Disinfect tools, avoid handling plants when wet, and remove infected plants."
+    },
+    "Tomato___healthy": {
+      "cause": "",
+      "cure": ""
+    }
+}
