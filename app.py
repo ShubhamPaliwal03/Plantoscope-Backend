@@ -18,8 +18,8 @@ app = Flask(__name__)
 
 CORS(app)
 
-model_path = './plantoscope_model.h5'
-model_google_drive_url = 'https://drive.google.com/uc?id=1UyaDOrmOKyO3hQN5c_0Ono4E3HWOBkOn'
+model_path = './plantoscope_model.tflite'
+model_google_drive_url = 'https://drive.google.com/uc?id=1T0qT8ssCNPYxQtBhtHvE8-zpYSBh3GuG'
 
 # check if the model is already loaded in the container, otherwise load it
 
@@ -29,7 +29,11 @@ if not os.path.exists(model_path):
 
 # load the ML model
 
-model = tf.keras.models.load_model(model_path)
+interpreter = tf.lite.Interpreter(model_path=model_path)
+interpreter.allocate_tensors()
+
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
 
 # load the class labels and disease information
 
@@ -38,7 +42,7 @@ disease_info = json.load(open('./disease_info.json'))
 
 # load the env (environment) files
 
-load_dotenv()
+load_dotenv('API_KEY.env')
 
 # extract the API key from the env file
 
@@ -67,52 +71,43 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-
-    # authenticate the request
-
+    
     key = request.headers.get('x-api-key')
 
     if key != API_KEY:
-
         return jsonify({"error": "Unauthorized Request"}), 401
 
-    # check if the image file is present in the request or not
-
     if 'file' not in request.files:
-
         return jsonify({'error': 'No file uploaded'}), 400
-    
+
     file = request.files['file']
+    image = preprocess_image(file).astype(np.float32)  # TFLite expects float32
 
-    image = preprocess_image(file)
+    # Set input tensor
+    interpreter.set_tensor(input_details[0]['index'], image)
 
-    # get the prediction
+    # Run inference
+    interpreter.invoke()
 
-    predictions = model.predict(image)
-    predicted_class_index = np.argmax(predictions, axis=1)[0]
+    # Get output tensor
+    output_data = interpreter.get_tensor(output_details[0]['index'])
+    predicted_class_index = np.argmax(output_data[0])
     predicted_class_name = class_indices.get(str(predicted_class_index), 'Unknown Disease')
 
-    # extract plant type from predicted class name
-
     if predicted_class_name != 'Unknown Disease' and '___' in predicted_class_name:
-
         plant_type, disease_name = predicted_class_name.split("___", 1)
-
     else:
-
         plant_type, disease_name = 'Unknown', 'Unknown'
-
-    # get the disease information
 
     info = disease_info.get(predicted_class_name, {'cause': 'No cause available', 'cure': 'No cure available'})
 
     return jsonify({
-
         'plant_type': plant_type,
         'disease_name': disease_name,
         'cause': info['cause'],
         'cure': info['cure']
     })
+
 
 if __name__ == '__main__':
 
