@@ -75,39 +75,60 @@ def predict():
     key = request.headers.get('x-api-key')
 
     if key != API_KEY:
+
         return jsonify({"error": "Unauthorized Request"}), 401
 
     if 'file' not in request.files:
+
         return jsonify({'error': 'No file uploaded'}), 400
 
-    file = request.files['file']
-    image = preprocess_image(file).astype(np.float32)  # TFLite expects float32
+    try:
 
-    # Set input tensor
-    interpreter.set_tensor(input_details[0]['index'], image)
+        file = request.files['file']
+        image = preprocess_image(file).astype(np.float32)  # TFLite expects float32
 
-    # Run inference
-    interpreter.invoke()
+        # Set input tensor
+        interpreter.set_tensor(input_details[0]['index'], image)
 
-    # Get output tensor
-    output_data = interpreter.get_tensor(output_details[0]['index'])
-    predicted_class_index = np.argmax(output_data[0])
-    predicted_class_name = class_indices.get(str(predicted_class_index), 'Unknown Disease')
+        # Run inference
+        interpreter.invoke()
 
-    if predicted_class_name != 'Unknown Disease' and '___' in predicted_class_name:
-        plant_type, disease_name = predicted_class_name.split("___", 1)
-    else:
-        plant_type, disease_name = 'Unknown', 'Unknown'
+        # Get output tensor
+        output_data = interpreter.get_tensor(output_details[0]['index'])
+        predicted_class_index = np.argmax(output_data[0])
+        predicted_class_name = class_indices.get(str(predicted_class_index), 'Unknown Disease')
 
-    info = disease_info.get(predicted_class_name, {'cause': 'No cause available', 'cure': 'No cure available'})
+        if predicted_class_name != 'Unknown Disease' and '___' in predicted_class_name:
 
-    return jsonify({
-        'plant_type': plant_type,
-        'disease_name': disease_name,
-        'cause': info['cause'],
-        'cure': info['cure']
-    })
+            plant_type, disease_name = predicted_class_name.split("___", 1)
 
+        else:
+
+            plant_type, disease_name = 'Unknown', 'Unknown'
+
+        info = disease_info.get(predicted_class_name, {'cause': 'Unknown', 'cure': 'Unknown'})
+
+        return jsonify({
+            
+            'plant_type': plant_type,
+            'disease_name': disease_name,
+            'cause': info['cause'],
+            'cure': info['cure']
+
+        }), 200
+
+    except Exception as e:
+
+        print('Prediction error:', e)
+
+        return jsonify({
+
+            'plant_type': 'Unknown',
+            'disease_name': 'Unknown',
+            'cause': 'Unknown',
+            'cure': 'Unknown'
+
+        }), 200
 
 if __name__ == '__main__':
 
