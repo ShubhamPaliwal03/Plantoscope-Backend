@@ -67,6 +67,13 @@ def home():
 
     return 'Welcome to PlantoScope API ☘️'
 
+# API endpoint for health check in Render (Deployment Service)
+
+@app.route('/healthcheck')
+def healthcheck():
+
+    return jsonify({'status': 'ok'}), 200
+
 # API endpoint for requesting the prediction
 
 @app.route('/predict', methods=['POST'])
