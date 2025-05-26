@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # allow cross-orgin request sharing (CORS)
 
-CORS(app)
+CORS(app, resources={r"/predict": {"origins": "*"}})
 
 model_path = './plantoscope_model.tflite'
 model_google_drive_url = 'https://drive.google.com/uc?id=1T0qT8ssCNPYxQtBhtHvE8-zpYSBh3GuG'
